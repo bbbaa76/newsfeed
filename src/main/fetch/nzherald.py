@@ -21,6 +21,7 @@ class NzHerald:
             title = link.text.encode('utf-8')
 
             rawLinkDateTime = header.find_element_by_css_selector("div.publish.col-sm-12").text.split("\n")[0]
+            
             imageLink = article.find_element_by_css_selector("img").get_attribute("src")
 
             try:

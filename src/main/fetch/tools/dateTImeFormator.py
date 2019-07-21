@@ -14,8 +14,10 @@ class DateTimeFormator:
         newsYear = dateTimeList[2] 
         newsTime = dateTimeList[3].upper()
         rawPostDateTime = "%(newsMonth)s %(newsDate)s %(newsYear)s %(newsTime)s" % {"newsMonth": newsMonth, "newsDate":newsDate, "newsYear":newsYear, "newsTime":newsTime}
-        postDateTimeObj = datetime.datetime.strptime(rawPostDateTime, '%b %d %Y %I:%M%p')
-        
+        try:
+            postDateTimeObj = datetime.datetime.strptime(rawPostDateTime, '%b %d %Y %I:%M%p')
+        except:
+            postDateTimeObj = datetime.datetime.strptime(datetime.datetime.now, '%b %d %Y %I:%M%p')
         nztz = pytz.timezone('Pacific/Auckland')
         utctz = pytz.timezone("UTC")
         nz_date_time_obj = nztz.localize(postDateTimeObj)
