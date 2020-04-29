@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from .nzherald import NzHerald
 
+
 class Job:
 
     def ___init___(self):
@@ -16,18 +17,17 @@ class Job:
             'oneNews': 'https://www.tvnz.co.nz/one-news'
         }.get(siteName, "https://www.nzherald.co.nz")
         return url
-    
-    def browserOpen (self):
-        self.browser = webdriver.Firefox()
 
-    def fetch (self, siteName):
+    def browserOpen(self):
+        self.browser = webdriver.Firefox()
+        # self.browser.implicitly_wait(5)
+
+    def fetch(self, siteName):
         url = self.siteSwitcher(siteName)
         self.browser.get(url)
         if siteName == 'nzherald':
             nzherald = NzHerald(self.browser)
             nzherald.fetch()
-        
 
-
-    def browserClose (self):
+    def browserClose(self):
         self.browser.close()

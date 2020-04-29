@@ -1,8 +1,5 @@
 from fetch.job import Job
 
-
-
-
 job = Job()
 job.browserOpen()
 job.fetch("nzherald")

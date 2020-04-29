@@ -9,8 +9,7 @@ class Connect:
         self.password = "lglin"
         self.database = "newsfeed"
 
-    def connect_to_db (self):
-
+    def connect_to_db(self):
         mydb = mysql.connector.connect(
             host=self.host,
             user=self.user,
